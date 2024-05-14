@@ -13,5 +13,3 @@ This is template for telegram bots by aiogram
    - [register models](bot/database/models/main.py)
 4. [Remove echo example](bot/handlers/other.py)
 5. Run [run.py](run.py)
-
-### To understand the architecture of this structure, watch this [VIDEO](https://www.youtube.com/watch?v=W-0YoEYBSwU&t=23s)

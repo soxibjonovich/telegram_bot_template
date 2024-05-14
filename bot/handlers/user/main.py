@@ -1,7 +1,4 @@
-from aiogram import Dispatcher
+from aiogram import Router
 
-
-def register_user_handlers(dp: Dispatcher):
-    # todo: register all user handlers
-    pass
+user_router = Router(name="user")
 
