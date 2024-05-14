@@ -1,1 +1,1 @@
-from .main import register_models
+from .user import User
