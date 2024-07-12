@@ -1,4 +1,5 @@
 from aiogram import Bot, Dispatcher
+from aiogram.client.default import DefaultBotProperties
 from aiogram.fsm.storage.memory import MemoryStorage
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
@@ -25,14 +26,10 @@ async def start_bot():
     """
     Main function to start the bot.
     """
-
     engine = create_async_engine(TgKeys.DB_URL, echo=False)
     sessionmaker = async_sessionmaker(engine, expire_on_commit=False)
 
-    async with engine.begin() as connection:
-        await connection.run_sync(Base.metadata.create_all)
-
-    bot = Bot(token=TgKeys.TOKEN, parse_mode="HTML")
+    bot = Bot(token=TgKeys.TOKEN, default=DefaultBotProperties(parse_mode="HTML"))
     dp = Dispatcher(storage=MemoryStorage())
     dp.update.middleware(DbSessionMiddleware(session_pool=sessionmaker))
 
