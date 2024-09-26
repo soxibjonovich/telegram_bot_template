@@ -106,7 +106,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
+.env.sample
 .venv
 env/
 venv/
@@ -141,4 +141,4 @@ cython_debug/
 .idea
 .vscode
 .sqlite
-.db
+.db!/.env
